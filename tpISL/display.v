@@ -1,6 +1,7 @@
 module display (s1, s0, reset, ready, a, b, c, d, e, f, g);
     output reg a, b, c, d, e, f, g;
     input s1, s0, reset, ready;
+    // O display fica apagado caso não receba o sinal de controle de reset e ready.
     always @(*) begin
         a = 0;
         b = 0;
@@ -9,7 +10,9 @@ module display (s1, s0, reset, ready, a, b, c, d, e, f, g);
         e = 0;
         f = 0;
         g = 0;
-        if (reset) begin
+    // Em caso de reset, o display mostra 0. Isso é feito pois o reset atribui 0 as duas saídas. Para diferenciar do caso de ERRO
+    // (s1=s0=0), o display mostra 0 ao invés de E.
+       if (reset) begin
             a = 1;
             b = 1;
             c = 1;
@@ -18,6 +21,13 @@ module display (s1, s0, reset, ready, a, b, c, d, e, f, g);
             f = 1;
             g = 0;
         end
+        // Caso o sinal ready seja 1, o display mostra o número correspondente à saída.
+        // 00 = E.
+        // 01 = 1.
+        // 10 = 2.
+        // 11 = 3.
+        // O sinal ready tem prioridade sobre o sinal de reset, portanto se ambos forem 1, o display mostrará o número que está
+        // na saída.
         if (ready) begin
             if ((s1 == 1) & (s0 == 1)) begin
             a = 1;
