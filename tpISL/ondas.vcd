@@ -1,5 +1,5 @@
 $date
-	Mon Oct  5 06:51:37 2026
+	Thu Oct  8 16:54:58 2026
 $end
 $version
 	Icarus Verilog
@@ -24,7 +24,6 @@ $var reg 1 - C3 $end
 $var reg 1 . D0 $end
 $var reg 1 / D1 $end
 $var reg 1 0 ready $end
-$var reg 1 1 reset $end
 $scope module unit1 $end
 $var wire 1 * C0 $end
 $var wire 1 + C1 $end
@@ -33,13 +32,11 @@ $var wire 1 - C3 $end
 $var wire 1 . D0 $end
 $var wire 1 / D1 $end
 $var wire 1 0 ready $end
-$var wire 1 1 reset $end
 $var reg 1 " s0 $end
 $var reg 1 ! s1 $end
 $upscope $end
 $scope module unit2 $end
 $var wire 1 0 ready $end
-$var wire 1 1 reset $end
 $var wire 1 " s0 $end
 $var wire 1 ! s1 $end
 $var reg 1 ) a $end
@@ -57,7 +54,6 @@ $dumpall
 $end
 #0
 $dumpvars
-11
 00
 x/
 x.
@@ -65,25 +61,25 @@ x-
 x,
 x+
 x*
-1)
-1(
-1'
-1&
-1%
-1$
+0)
+0(
+0'
+0&
+0%
+0$
 0#
 0"
 0!
 $end
 #5
-1"
-1!
-1#
-0$
-0%
-1&
 1'
 1(
+1"
+1!
+1&
+0%
+1#
+0$
 1)
 0.
 0/
@@ -92,7 +88,6 @@ $end
 0,
 0-
 10
-01
 #10
 1%
 1#
@@ -302,24 +297,15 @@ $end
 0.
 1/
 #140
-1$
-1#
-1%
-1&
-0(
-1)
-0!
 1.
 #145
 1'
-1(
 1#
-0$
 0%
 1&
+1(
 1)
 1"
-1!
 0.
 0/
 1*
@@ -336,24 +322,15 @@ $end
 0.
 1/
 #160
-1$
-1#
-1%
-1&
-0(
-1)
-0!
 1.
 #165
 1'
-1(
 1#
-0$
 0%
 1&
+1(
 1)
 1"
-1!
 0.
 0/
 0*
@@ -373,24 +350,15 @@ $end
 0.
 1/
 #180
-1$
-1#
-1%
-1&
-0(
-1)
-0!
 1.
 #185
 1'
-1(
 1#
-0$
 0%
 1&
+1(
 1)
 1"
-1!
 0.
 0/
 1*
@@ -407,24 +375,15 @@ $end
 0.
 1/
 #200
-1$
-1#
-1%
-1&
-0(
-1)
-0!
 1.
 #205
 1'
-1(
 1#
-0$
 0%
 1&
+1(
 1)
 1"
-1!
 0.
 0/
 0*
@@ -442,24 +401,15 @@ $end
 0.
 1/
 #220
-1$
-1#
-1%
-1&
-0(
-1)
-0!
 1.
 #225
 1'
-1(
 1#
-0$
 0%
 1&
+1(
 1)
 1"
-1!
 0.
 0/
 1*
