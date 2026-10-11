@@ -1,7 +1,6 @@
 module display (s1, s0, ready, a, b, c, d, e, f, g);
     output reg a, b, c, d, e, f, g;
     input s1, s0, ready;
-    // O display fica apagado caso não receba o sinal de controle de reset e ready.
     always @(*) begin
         a = 0;
         b = 0;
