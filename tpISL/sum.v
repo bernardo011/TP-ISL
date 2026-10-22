@@ -15,7 +15,7 @@ module sum (s, ready, reset, soma, f, v1, v2, v3, v4, d1, d2, d3, d4);
         2b'11: f = 5;
       end
     end
-  always @(negedge soma) begin
+    always @(negedge soma && reset) begin
     if (reset) begin
       v1 = 4b'0000;
       v2 = 4b'0000;
