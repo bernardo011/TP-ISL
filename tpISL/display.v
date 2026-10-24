@@ -1,20 +1,22 @@
-module display (s1, s0, ready, a, b, c, d, e, f, g);
+module display (s1, s0, ready, a, b, c, d, e, f, g, reset);
     output reg a, b, c, d, e, f, g;
-    input s1, s0, ready;
+    input s1, s0, ready, reset;
     always @(*) begin
-        a = 0;
-        b = 0;
-        c = 0;
-        d = 0;
-        e = 0;
-        f = 0;
-        g = 0;
+        if (reset) begin
+            a = 0;
+            b = 0;
+            c = 0;
+            d = 0;
+            e = 0;
+            f = 0;
+            g = 0;
+        end
         // Caso o sinal ready seja 1, o display mostra o número correspondente à saída.
         // 00 = E.
         // 01 = 1.
         // 10 = 2.
         // 11 = 3.
-        if (ready) begin
+        if (ready == 1 && reset == 0) begin
             if ((s1 == 1) & (s0 == 1)) begin
             a = 1;
             b = 1;
