@@ -24,7 +24,7 @@ module bench ();
         .reset(reset),
         .a(a), .b(b), .c(c), .d(d),
         .e(e), .f(f), .g(g)
-    );
+);
 
     sum unit3 (
         .s({s1, s0}),
@@ -41,15 +41,21 @@ module bench ();
         $dumpvars(0, bench);
 
         $monitor(
-            "Time=%0t | ready=%b reset=%b soma=%b | C=%b%b%b%b D=%b%b | S=%b%b | f=%d | Contador: v4=%d v3=%d v2=%d v1=%d | Displays: d4=%b d3=%b d2=%b d1=%b",
+            "Time=%0t | ready=%b reset=%b soma=%b | C=%b%b%b%b D=%b%b | S=%b%b | Categoria: %b%b%b%b%b%b%b |f=%d | Contador: v4=%d v3=%d v2=%d v1=%d | Displays: d4=%b d3=%b d2=%b d1=%b",
             $time, ready, reset, soma,
             C3, C2, C1, C0, D1, D0,
-            s1, s0, valor_soma,
+            s1, s0, 
+            a, b, c, d, e, f, g,
+            valor_soma,
             v4, v3, v2, v1,
             d4, d3, d2, d1
         );
 
-        // Inicialização
+        $display("\n================================");
+        $display("    TESTE DE DISPLAY E SOMA    ");
+        $display("==================================");
+
+
         C3 = 0; C2 = 0; C1 = 0; C0 = 0;
         D1 = 0; D0 = 0;
         ready = 0;
@@ -60,28 +66,19 @@ module bench ();
         reset = 0;
         ready = 1;
 
-        // Testa as 64 combinações de C e D
         for (i = 0; i < 64; i = i + 1) begin
             {C3, C2, C1, C0, D1, D0} = i;
 
             #5;
-
-            // Pulso de subida de soma: calcula f
             soma = 1;
             #5;
-
-            // Pulso de descida de soma: atualiza o contador
             soma = 0;
             #5;
-
-            // Desativa ready periodicamente
             if (i == 7 || i == 23 || i == 39 || i == 55) begin
                 ready = 0;
                 #5;
                 ready = 1;
             end
-
-            // Aciona reset periodicamente
             if (i == 15 || i == 31 || i == 47) begin
                 reset = 1;
                 #5;
